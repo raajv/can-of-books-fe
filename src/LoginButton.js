@@ -1,10 +1,25 @@
 import { Component } from 'react'
+import LoginForm from './LoginForm';
 
 export default class LoginButton extends Component {
+  constructor(props) {
+    super(props); 
+      this.state = {
+        click : false,
+      }
+    }
+  
+  handleClick = () => {
+    this.setState({click : true})
+  }
 
   render() {
 
-    /* TODO: Render a button with label 'Log In'. When the button is clicked then show LoginForm instead */
-    return <p>LoginButton coming soon</p>
+   return (
+    <>
+    {this.state.click ? <LoginForm loginHandler={this.props.loginHandler}/> : <button onClick={this.handleClick}>Log In</button>}
+    </>
+   )
+  
   }
 }

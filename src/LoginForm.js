@@ -2,10 +2,32 @@ import { Component } from "react";
 
 class LoginForm extends Component {
 
-  render() {
-    /* TODO: create a simple login form that collects username and and email, and lets parent component know when form has been submitted */
+  
+    
+    constructor(props) {
+      super(props); 
+        this.state = {
+          user : '',
+        }
+      }
+  
+    handleClick = () => {
+      this.props.loginHandler(this.state.user)
+    }
+    
+    handleChange = (e) => {
+          this.setState({user : e.target.value})
+    }
+  
+    render() {
     return (
-      <p>LoginForm Coming Soon</p>
+      <>
+        <input onChange={this.handleChange} type="text" placeholder="Enter your email"/>
+        <button onClick={this.handleClick} variant="primary" type="submit">Log In
+        </button>
+      
+      </>
+
     );
   }
 };
