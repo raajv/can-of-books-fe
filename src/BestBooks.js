@@ -12,7 +12,7 @@ class BestBooks extends React.Component {
   }
 
   getBooks = async()=>{
-    let url = `http://localhost:3001/books`;
+    let url = `${HERO_URL}books`;
     const response = await axios.get(url);
     this.setState({books:response.data})
   }
