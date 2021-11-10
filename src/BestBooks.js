@@ -3,6 +3,7 @@ import axios from 'axios';
 import BookCarousel from './BookCarousel';
 import { Carousel, Container } from 'react-bootstrap';
 
+
 class BestBooks extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +13,7 @@ class BestBooks extends React.Component {
   }
 
   getBooks = async()=>{
-    let url = `${process.env.HERO_URL}books`;
+    let url = `https://can-of-books-be-lab.herokuapp.com/books`;
     const response = await axios.get(url);
     this.setState({books:response.data})
   }
