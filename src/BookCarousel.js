@@ -1,27 +1,17 @@
-import React from 'react';
-import { Carousel } from 'react-bootstrap';
+import React, {Component} from 'react';
+import  Carousel  from 'react-bootstrap/Carousel';
 import { Container } from 'react-bootstrap';
+import Book from './Book.js'
 
-export default class BookCarousel extends React.Component {
+export default class BookCarousel extends Component {
 
   render() {
     return (
-        
-        <>
-        {/* <img
-          className="d-block w-100"
-          src="./src/ferrari.jpg"
-          alt="First slide"
-        /> */}
-        <Carousel.Caption>
-          <h3>{this.props.books.title}</h3>
-          <p>{this.props.books.description}</p>
-        </Carousel.Caption>
-        </>
-      
-      
-      
-      
+        <Container>
+        <Carousel>
+        {this.props.books.map(book => <Carousel.Item key={book._id} ><Book book={book} /> </Carousel.Item>)}
+        </Carousel>
+        </Container>  
     )
   }
 }
