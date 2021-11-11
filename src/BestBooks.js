@@ -36,7 +36,13 @@ class BestBooks extends React.Component {
     this.setState({books: remainingBooks})
     console.log(`remianing books : ${remainingBooks}`)
   }
-
+  editBooks = async(id,updatedBook)=>{
+    let url = `${process.env.REACT_APP_SERVER_URL}books/${id}?email=${this.props.user}`;
+    const response = await axios.put(url,updatedBook);
+    let newBooks = [ ...this.state.books , response.data]
+    this.setState({books:newBooks})
+    console.log(response.data)
+  }
  closeModal = () =>{
    this.setState({show : false})
  }
@@ -59,7 +65,7 @@ class BestBooks extends React.Component {
       <>
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
 
-        {this.state.books.length ? (<BookCarousel books={this.state.books} delBooks = {this.delBooks}/>) : (
+        {this.state.books.length ? (<BookCarousel books={this.state.books} delBooks = {this.delBooks} updatedBooks = { this.editBooks}/>) : (
           <h3>No Books Found </h3>
           )}
           <AddButton openModal = { this.openModal}/>
