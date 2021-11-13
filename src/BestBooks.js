@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import BookCarousel from './BookCarousel';
-import { Carousel, Container } from 'react-bootstrap';
+
 import AddBookModal from './AddBookModal.js';
 import AddButton from './AddButton.js'
-import Book from './Book'
+
 
 
 class BestBooks extends React.Component {
@@ -39,7 +39,7 @@ class BestBooks extends React.Component {
   }
   editBooks = async(id,updatedBook)=>{
     let url = `${process.env.REACT_APP_SERVER_URL}books/${id}?email=${this.props.user}`;
-    const response = await axios.put(url,updatedBook);
+    await axios.put(url,updatedBook);
     this.getBooks()
     console.log(`updated book: ${updatedBook}`)
   }
