@@ -27,6 +27,7 @@ class BestBooks extends React.Component {
     const response = await axios.post(url,newBook);
     let newBooks =[ ...this.state.books , response.data]
     this.setState({books: newBooks});
+    this.getBooks()
     console.log(newBook)
   }
   delBooks = async(id)=>{

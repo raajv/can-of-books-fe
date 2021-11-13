@@ -22,8 +22,6 @@ export default class Book extends React.Component {
       const title = e.target.title.value;
       const description = e.target.description.value;
       const id = this.props.book._id
-      
-      
       this.props.updatedBooks(id,{title,description})
       this.closeModal()
 }
