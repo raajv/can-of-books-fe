@@ -86,5 +86,18 @@ Actual time needed to complete: 1 hrs
 Rushabh - was the driver for the server and raaj was nav
 raaj - was the driver for front end and rushab was the nav
 
+# lab 13
+Name of feature: Added put functionality
+
+Estimate of time needed to complete: 1 hrs
+
+Start time: 1900  
+
+Finish time: 2100
+
+Actual time needed to complete: 2 hrs
+Rushabh - was the nav for the server and raaj was driver
+raaj - was the nav for front end and rushab was the driver
+
 
 
