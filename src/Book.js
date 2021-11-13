@@ -1,6 +1,5 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import { Container } from 'react-bootstrap';
 import img from './ferrari.jpg'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
@@ -11,7 +10,7 @@ export default class Book extends React.Component {
     super(props);
     this.state = {
       
-      show : false
+      showUpdate : false
     }
   }
 
@@ -23,9 +22,9 @@ export default class Book extends React.Component {
       const title = e.target.title.value;
       const description = e.target.description.value;
       const id = this.props.book._id
-      let book = (title,description)
-      console.log(title,description)
-      this.props.updatedBooks(id,book)
+      
+      
+      this.props.updatedBooks(id,{title,description})
       this.closeModal()
 }
     handleUpdateClick = () => {
@@ -33,11 +32,11 @@ export default class Book extends React.Component {
     }
 
     closeModal = () =>{
-      this.setState({show : false})
+      this.setState({showUpdate : false})
     }
    
     openModal = () =>{
-     this.setState({show : true})
+     this.setState({showUpdate : true})
    }
    
 
@@ -55,7 +54,7 @@ export default class Book extends React.Component {
           <p>{this.props.book.description}</p>
           <Button onClick = {this.handleClick}> Delete Book</Button>
           <Button onClick = {this.handleUpdateClick}> Update Book</Button>
-          <Modal show={this.state.show} onHide={this.closeModal}>
+          <Modal show={this.state.showUpdate} onHide={this.closeModal}>
           <Modal.Header closeButton>
             <Modal.Title>Update a Book !</Modal.Title>
           </Modal.Header>

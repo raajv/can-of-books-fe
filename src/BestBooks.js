@@ -39,9 +39,8 @@ class BestBooks extends React.Component {
   editBooks = async(id,updatedBook)=>{
     let url = `${process.env.REACT_APP_SERVER_URL}books/${id}?email=${this.props.user}`;
     const response = await axios.put(url,updatedBook);
-    let newBooks = [ ...this.state.books , response.data]
-    this.setState({books:newBooks})
-    console.log(response.data)
+    this.getBooks()
+    console.log(`updated book: ${updatedBook}`)
   }
  closeModal = () =>{
    this.setState({show : false})
