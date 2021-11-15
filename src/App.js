@@ -1,4 +1,7 @@
 import React from 'react';
+import { withAuth0 } from '@auth0/auth0-react';
+import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 import Header from './Header';
 import Footer from './Footer';
 import Login from './Login';
@@ -12,46 +15,57 @@ import {
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: null,
-    }
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     user: null,
+  //   }
+  // }
 
-  loginHandler = (user) => {
-    this.setState({
-      user,
+  // loginHandler = (user) => {
+  //   this.setState({
+  //     user,
       
-    })
-    console.log(user);
-  }
+  //   })
+  //   console.log(user);
+  // }
 
-  logoutHandler = () => {
-    this.setState({
-      user: null,
-    })
-  }
+  // logoutHandler = () => {
+  //   this.setState({
+  //     user: null,
+  //   })
+  // }
 
   
 
   render() {
     return (
       <>
-        <Router>
-          <Header user={this.state.user} onLogout={this.logoutHandler} />
+      
+        <LoginButton />
+        <LogoutButton />
+        {this.props.auth0.isAuthenticated && 
+          <>
+          <Router>
+          <Header user={this.props.auth0.user} onLogout={this.logoutHandler} />
           <Switch>
             <Route exact path="/">
-            {this.state.user ? <BestBooks user={this.state.user} /> : <Login loginHandler={this.loginHandler}/>}
+             <BestBooks user={this.props.auth0.user.email} /> 
             </Route>
             <Login loginHandler={this.loginHandler}/>
             
           </Switch>
           <Footer />
         </Router>
+
+
+
+          </>
+        }
+      
       </>
     )
   }
 }
 
-export default App;
+export default withAuth0(App);

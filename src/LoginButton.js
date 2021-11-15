@@ -1,25 +1,15 @@
-import { Component } from 'react'
-import LoginForm from './LoginForm';
+import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
-export default class LoginButton extends Component {
-  constructor(props) {
-    super(props); 
-      this.state = {
-        click : false,
-      }
-    }
-  
-  handleClick = () => {
-    this.setState({click : true})
-  }
+function LoginButton() {
+  const {
+    isAuthenticated,
+    loginWithRedirect,
+  } = useAuth0();
 
-  render() {
-
-   return (
-    <>
-    {this.state.click ? <LoginForm loginHandler={this.props.loginHandler}/> : <button onClick={this.handleClick}>Log In</button>}
-    </>
-   )
-  
-  }
+  return !isAuthenticated && (
+    <button onClick={loginWithRedirect}>Log in</button>
+  );
 }
+
+export default LoginButton;
