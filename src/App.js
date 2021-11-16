@@ -15,27 +15,7 @@ import {
 
 class App extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     user: null,
-  //   }
-  // }
-
-  // loginHandler = (user) => {
-  //   this.setState({
-  //     user,
-      
-  //   })
-  //   console.log(user);
-  // }
-
-  // logoutHandler = () => {
-  //   this.setState({
-  //     user: null,
-  //   })
-  // }
-
+  
   
 
   render() {
