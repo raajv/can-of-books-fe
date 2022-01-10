@@ -44,17 +44,17 @@ export default class Book extends React.Component {
         <>
         <img
           className="d-block w-100"
-          src={img}
+          src={this.props.book.image}
           alt="First slide"
         />
         <Carousel.Caption>
           <h3>{this.props.book.title}</h3>
           <p>{this.props.book.description}</p>
-          <Button onClick = {this.handleClick}> Delete Book</Button>
-          <Button onClick = {this.handleUpdateClick}> Update Book</Button>
+          <Button onClick = {this.handleClick}> Delete Image</Button>
+          <Button onClick = {this.handleUpdateClick}> Update Image</Button>
           <Modal show={this.state.showUpdate} onHide={this.closeModal}>
           <Modal.Header closeButton>
-            <Modal.Title>Update a Book !</Modal.Title>
+            <Modal.Title>Update an Image !</Modal.Title>
           </Modal.Header>
           <Modal.Body>
           <Form onSubmit = {this.handleSubmit}>

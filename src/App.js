@@ -12,6 +12,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import "./app.css"
 
 class App extends React.Component {
 

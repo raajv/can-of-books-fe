@@ -13,7 +13,7 @@ export default class AddBookModal extends Component {
   render() {
     return (
       
-          <Button onClick = { this.handleClick}> ADD A BOOK </Button>
+          <Button onClick = { this.handleClick}> ADD AN IMAGE </Button>
       
     );
   }

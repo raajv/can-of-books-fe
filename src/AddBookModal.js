@@ -22,7 +22,7 @@ export default class AddBookModal extends Component {
       
           <Modal show={this.props.show} onHide={this.props.closeModal}>
           <Modal.Header closeButton>
-            <Modal.Title>Add a Book !</Modal.Title>
+            <Modal.Title>Add an Image !</Modal.Title>
           </Modal.Header>
           <Modal.Body>
           <Form onSubmit = {this.handleSubmit}>
@@ -36,7 +36,7 @@ export default class AddBookModal extends Component {
           <Form.Control as="textarea" rows ={3} placeholder="Enter a short book description" />
           </Form.Group>
           <Button variant="primary" type="submit">
-          ADD BOOK !
+          ADD IMAGE !
          </Button>
          </Form>
           </Modal.Body>
